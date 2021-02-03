@@ -42,7 +42,8 @@ let heightLightEvent = function (nowSection) {
     ctx.beginPath();
     ctx.fillStyle = '#fa0';
     // canvas.fillRect(x座標,y座標,寬度,高度);
-    ctx.arc(width - xAsix - 75, yAsix, 150, 0, Math.PI * 2, false);
+    let circleWidth = document.body.clientWidth / 15;
+    ctx.arc(width - xAsix - 75, yAsix, circleWidth > 50 ? circleWidth : 50, 0, Math.PI * 2, false);
     ctx.fill();
     ctx.closePath();
     ctx.globalCompositeOperation = "destination-out";
@@ -78,7 +79,8 @@ let story_svg = document.getElementById('great_story_svg');
 let width = story.offsetWidth;
 let height = story.offsetHeight;
 let svgTime;
-story_svg.innerHTML = '<g id="svgandg" filter="url(#f)"><image id="Darwin" xmlns:xlink="http://www.w3.org/1999/xlink"xlink:href="img/story.jpg" width="' + width + '" height="' + height + '"></image><text id="text" text-anchor="middle" x="' + (width / 2) + '" y="' + (height / 2) + '" style="font-size:180px;font-weight:900;text-align:center;text-anchor: middle;" fill="#000">Great Story</text></g>';
+// 利用圖片撐開svg
+story_svg.innerHTML = '<g id="svgandg" filter="url(#f)"><image id="Darwin" xmlns:xlink="http://www.w3.org/1999/xlink"xlink:href="" width="' + width + '" height="' + height + '"></image><text id="text" text-anchor="middle" x="' + (width / 2) + '" y="' + (height / 2) + '" style="font-size:12vw;font-weight:900;text-align:center;text-anchor: middle;" fill="#000">Great Story</text></g>';
 
 // 起始狀態和速度
 let displacement = 0;

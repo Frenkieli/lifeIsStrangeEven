@@ -23,7 +23,7 @@ function canvasDraw (canvas, str, imgSrc =false){
   function fillText (){
     ctx.globalCompositeOperation = "destination-out";
     ctx.beginPath();
-    ctx.font = 'bold 180px Tahoma';
+    ctx.font = 'bold 12vw Tahoma';
     ctx.fillStyle = '#fa0';
     ctx.textAlign = 'center';
     ctx.fillText(str, width / 2, height / 2);
