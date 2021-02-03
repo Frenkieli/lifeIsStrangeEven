@@ -3,57 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-    <style>
-      /* http://meyerweb.com/eric/tools/css/reset/ 
-        v2.0 | 20110126
-        License: none (public domain)
-      */
-
-      html, body, div, span, applet, object, iframe,
-      h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-      a, abbr, acronym, address, big, cite, code,
-      del, dfn, em, img, ins, kbd, q, s, samp,
-      small, strike, strong, sub, sup, tt, var,
-      b, u, i, center,
-      dl, dt, dd, ol, ul, li,
-      fieldset, form, label, legend,
-      table, caption, tbody, tfoot, thead, tr, th, td,
-      article, aside, canvas, details, embed, 
-      figure, figcaption, footer, header, hgroup, 
-      menu, nav, output, ruby, section, summary,
-      time, mark, audio, video {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        font-size: 100%;
-        font: inherit;
-        vertical-align: baseline;
-      }
-      /* HTML5 display-role reset for older browsers */
-      article, aside, details, figcaption, figure, 
-      footer, header, hgroup, menu, nav, section {
-        display: block;
-      }
-      body {
-        line-height: 1;
-      }
-      ol, ul {
-        list-style: none;
-      }
-      blockquote, q {
-        quotes: none;
-      }
-      blockquote:before, blockquote:after,
-      q:before, q:after {
-        content: '';
-        content: none;
-      }
-      table {
-        border-collapse: collapse;
-        border-spacing: 0;
-      }
-    </style>
+  <title>lifeIsStrange</title>
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/animation.css">
     <link rel="stylesheet" href="css/base_color.css">
     <link rel="stylesheet" href="css/style.css">
@@ -62,39 +13,39 @@
   <!-- <img src="https://picsum.photos/1920/1080/?random=1"><img src="https://picsum.photos/1920/1080/?random=2"><img src="https://picsum.photos/1920/1080/?random=3"> -->
   <!-- <hr class="debug_line"> -->
   <nav class="navbar">
+    <h6 class="displaynone">Life Is Strange nav</h6>
     <ul class="navbar_list" id="navbar_list">
     </ul>
   </nav>
-  <div id="topButton">
-    <img src="img/top.svg" alt="上">
-  </div>
   <section class="section header active" data-title="Strange">
     <div class="container">
       <h1 class="header_title"><span class="title_move">Life Is Strange</span></h1>
     </div>
   </section>
   <section class="section hightlight" data-title="Brave">
+    <h3 class="displaynone">Be Brave</h3>
     <div class="container">
       <canvas id="canvasBrave"></canvas>
     </div>
   </section>
   <section class="section adventure" data-title="Adventure">
+    <h3 class="displaynone">To Adventure</h3>
     <div class="container">
       <canvas id="canvasAdventure"></canvas>
     </div>
   </section>
-  <svg class="displaynone">
+  <svg class="fixedOut">
     <defs>
       <filter id="f" primitiveUnits="objectBoundingBox">
         <feImage result="pict2" xlink:href=""></feImage>
         <feDisplacementMap scale=".05" xChannelSelector="R" yChannelSelector="R" in2="pict2" in="SourceGraphic">
-          <!-- 需要用重複漣漪所以需要改能用透明度去做位移...... -->
-          <!-- 這個又是數學之後再弄吧 ="= -->
         </feDisplacementMap>
       </filter>
     </defs>
   </svg>
   <section class="section story" data-title="Story">
+    <h3 class="displaynone">Great Story</h3>
+
     <div class="container">
       <svg id="great_story_svg" width="100%" height="100%">
         <!-- <image id="MyImage1" x="0" y="0" width="100%" height="100%" xlink:href="img/story.jpg"></image>
@@ -103,12 +54,16 @@
     </div>
   </section>
   <section class="section end" data-title="Buy">
+    <h3 class="displaynone">To Buy</h3>
     <div class="container">
       <div class="text_box">
         <a href="javascript:;">BUY NOW</a>
       </div>
     </div>
   </section>
+  <div id="topButton">
+    <img src="img/top.svg" alt="top">
+  </div>
   <script src="js/jq.3.4.1.min.js"></script>
   <script src="js/scrollSectionEvent.js"></script>
   <script src="js/main.js"></script>
