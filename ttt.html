@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    body {
+      background-color: #fa0;
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+  <script>
+    window.addEventListener('load', function () {
+
+      let canvas = document.getElementById('canvas');
+      canvasDraw(canvas, 'Be Brave');
+      var num = 0;
+      setInterval(() => {
+        canvasDraw(canvas, 'Be Brave');
+        num += 0.5;
+      }, 50);
+      function canvasDraw(canvas, str, imgSrc = false) {
+        let width = canvas.offsetWidth;
+        let height = canvas.offsetHeight;
+        canvas.width = width;
+        canvas.height = height;
+        let ctx = canvas.getContext("2d");
+        if (imgSrc) {
+          let img = new Image();
+          img.src = imgSrc;
+          img.addEventListener('load', function (e) {
+            ctx.drawImage(img, 0, 0, width, height);
+            fillText();
+          })
+        } else {
+          ctx.fillStyle = '#000000';
+          ctx.fillRect(0, 0, width, height);
+          fillText();
+        }
+        function fillText() {
+          ctx.globalCompositeOperation = "destination-out";
+          ctx.beginPath();
+          let hhhh = 'bold ' + (num ? (num) : (180)) + 'px Tahoma';
+          console.log(hhhh);
+          ctx.font = hhhh;
+          // ctx.style.
+          ctx.fillStyle = '#fa0';
+          ctx.textAlign = 'center';
+          ctx.fillText(str, width / 2, height / 2 + num / 2);
+          ctx.closePath();
+        }
+        return ctx;
+      }
+    })
+  </script>
+</body>
+
+</html>

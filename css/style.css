@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body{
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: #333;
+}
+.displaynone{
+  position: fixed;
+  left: -100%;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  background: #ccc;
+}
+.debug_line{
+  position: fixed;
+  top: 200px;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+.section{
+  position: relative;
+  height: 100vh;
+  box-sizing: border-box;
+  border-bottom: 1px solid #000;
+}
+.container{
+  width: 100%;
+  height: 100%;
+}
+
+
+/* 表單樣式 */
+.navbar{
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  z-index: 9999;
+  color: #fff;
+  transform: translateX(100%);
+
+  /* mix-blend-mode: hard-light;   特別亮 */
+  mix-blend-mode: screen;   /* 光的三原色 */
+}
+.navbar_list{
+  display: flex;
+  flex-direction: column;
+}
+.nvbar_item{
+  /* display: inline-block; */
+  transform: translateX(-20px);
+  font-size: 20px;
+  font-weight: 900;
+  position: relative;
+  margin: 10px 0;
+  padding-left: 20px;
+  vertical-align: bottom;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.nvbar_item:hover{
+  transform: translateX(-50%);
+}
+.active.nvbar_item{
+  transform: translateX(-105%);
+}
+.navbar_dot{
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+}
+.left_dot::before,.left_dot::after,.right_dot::before,.right_dot::after{
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 15px;
+  height: 15px;
+  transition: 0.25s;
+}
+.active .left_dot::before, .active .left_dot::after, .active .right_dot::before, .active .right_dot::after{
+  width: 10px;
+  height: 10px;
+}
+.active .left_dot::before{
+  opacity: 0.8;
+  animation: moveLeftTop 1.25s forwards;
+  transform-origin: left bottom;
+}
+.active .left_dot::after{
+  opacity: 0.6;
+  animation: moveRightTop 0.5s forwards;
+}
+.active .right_dot::before{
+  opacity: 0.4;
+  animation: moveRightBottom 0.75s forwards;
+}
+.active .right_dot::after{
+  opacity: 0.2;
+  animation: moveLeftBottom 1s forwards;
+}
+
+/* 完成滾輪動畫！ */
+#topButton{
+  position: fixed;
+  bottom: -250px;
+  right: 50px;
+  width: 75px;
+  height: 75px;
+  /* background-color: #fff; */
+  z-index: 99999;
+  transition: 0.5s;
+  cursor: pointer;
+}
+#topButton img {
+  vertical-align: middle;
+}
+#topButton.active{
+  bottom: 50px;
+}
+/* top */
+.header{
+  /* background-image: url('仙人掌花.jpg'); */
+  background: url('../img/header.jpg') no-repeat center center;
+}
+.header .container{
+  position: absolute;
+  background: rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+.header_title{
+  font-weight: 900;
+  text-align: center;
+  font-size: 160px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: transparent;
+  background: url('../img/header.jpg') center center;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.header.active .header_title{
+  animation: titleMove 1s infinite alternate;
+}
+
+
+/* 第二層 */
+
+.hightlight{
+  background: url('../img/heightlight.jpg') no-repeat center center;
+  background-size: 100% 100%;
+}
+#canvasBrave,#canvasAdventure{
+  width: 100%;
+  height: 100%;
+}
+.hightlight.active #canvasBrave{
+  transition: 3s;
+  opacity: 0;
+}
+
+/* 第三層 */
+.adventure{
+  background: url('../img/adventureBack.jpg') no-repeat center center;
+}
+/* 第四層 */
+.story{
+  background: url('../img/story.jpg') no-repeat center center;
+  background-size: 100% 100%;
+}
+/* 第五層 */
+.end{
+  background: url('../img/end.jpg') no-repeat center center;
+  background-size: 100% 100%;
+}
+.end .container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.end .text_box{
+  position: relative;
+}
+.end .text_box a{
+  color: #eee;
+  font-weight: 900;
+  font-size: 240px;
+  text-decoration: none;
+  transition: 0.5s;
+}
+.end .text_box a:hover{
+  color: #0af;
+}
+.end .text_box a::after{
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  right: -50px;
+  top: -50px;
+  border: 5px dotted #ccc;
+  border-radius: 50%;
+  transition: 1s;
+}
+.end.active .text_box a::after{
+  border: 7px dotted #ccc;
+  transform: scale(1.5) rotate(180deg);
+}

@@ -1,0 +1,15 @@
+.red ::after,.red ::before{
+  background-color: #f00;
+}
+.yellow ::after,.yellow ::before{
+  background-color: #ff0;
+}
+.green ::after,.green ::before{
+  background-color: #0f0;
+}
+.blue ::after,.blue ::before{
+  background-color: #00f;
+}
+.gray ::after,.gray ::before{
+  background-color: #aaa;
+}
